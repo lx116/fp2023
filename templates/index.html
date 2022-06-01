@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/teams_selector.js" %}"></script>
+    <script src="{% static "js/settings_csrf_token.js" %}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <img src="{% static '/img/resources/logo.png' %}" class="navincon">
+    </nav>
+    <main class="container-fluid padding_none">
+        <section class="row teams_selector container">
+            <div class="row">
+                <h1 class="title">FP2023</h1>
+            </div>
+            <div class="row inputs">
+                <div class="col local" id="ocult_input_local">
+                    <label for="local_team">
+                        Local
+                    </label>
+                    <select name="teams" id="local_team">
+                        <option>Selecciona un equipo</option>
+                        {% for team in teams  %}
+                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <h1 id="result_teams">Equipo ganador</h1>
+                </div>
+                <div class="col away" id="ocult_input_away">
+                    <label for="away_team">
+                        Visitante
+                    </label>
+                    <select name="teams" id="away_team">
+                        <option>Selecciona un equipo</option>
+                        {% for team in teams  %}
+                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row button_space">
+                <a class="flex" id="start_simulation">
+                    <div class="icon_button">
+                        <img src="{% static '/img/resources/logo.png' %}">
+                    </div>
+                </a>
+            </div>
+            <div class="row button_space">
+                <a class="flex" id="retry">
+                    <div class="icon_button">
+                        <img src="{% static '/img/resources/img.png' %}">
+                    </div>
+                </a>
+            </div>
+
+        </section>
+        <section class="stadium row">
+            <div class="container-fluid">
+                <div class="row container margin_auto">
+                    <div class="col team flex margin_auto local" id="local_zone">
+                        <img id="local_img" class="img_team local" src="{% static '/img/resources/logo.png' %}">
+                    </div>
+                    <div class="col away team flex margin_auto" id="away_zone">
+                        <img id="away_img" class="img_team away" src="{% static '/img/resources/logo.png' %}">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="stats_zone row container margin_separation">
+            <div class="row title_stats">
+                <h1>Estadisiticas</h1>
+            </div>
+            <div class="row margin_auto">
+                <div class="col curve">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="3" class="title_table" style="width: 100%">
+                                    Local
+                                </th>
+                            </tr>
+                            <tr class="no_border">
+                                <th colspan="3"  style="width: 100%">
+                                    <div class="flex">
+                                        <img id="local_img_stats" class="margin_auto img_team" src="{% static '/img/resources/logo.png' %}">
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" class="title_table" id="local_name_stats" style="width: 100%">
+                                    TEAM
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="local_stats">
+                            <tr>
+                                <th>Estadistica</th>
+                                <th>Valor</th>
+                                <th>Promedio</th>
+                            </tr>
+                            <tr>
+                                <td>Corners</td>
+                                <td id="local_corners">16</td>
+                                <td id="local_corners_p">0,0</td>
+                            </tr>
+                            <tr>
+                                <td>Faltas</td>
+                                <td id="local_fouls">16</td>
+                                <td id="local_fouls_p">16</td>
+                            </tr>
+                            <tr>
+                                <td>Tarjetas amarrillas</td>
+                                <td id="local_ycard">16</td>
+                                <td id="local_ycard_p">16</td>
+                            </tr>
+                            <tr>
+                                <td>Tarjetas rojas</td>
+                                <td id="local_rcard">16</td>
+                                <td id="local_rcard_p">16</td>
+                            </tr>
+                            <tr>
+                                <td>Tiros</td>
+                                <td id="local_shoots">16</td>
+                                <td id="local_shoots_p">16</td>
+                            </tr>
+                            <tr>
+                                <td>Tiros a puerta</td>
+                                <td id="local_dshoots">16</td>
+                                <td id="local_dshoots_p">16</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col curve">
+                    <table>
+                        <tr>
+                            <th colspan="3" class="title_table" style="width: 100%">
+                                Visitante
+                            </th>
+                        </tr>
+                        <tr class="no_border">
+                            <th colspan="3"  style="width: 100%">
+                                <div class="flex">
+                                    <img id="away_img_stats" class="margin_auto img_team" src="{% static '/img/resources/logo.png' %}">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3" id="away_name_stats" class="title_table" style="width: 100%">
+                                TEAM
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Estadistica</th>
+                            <th >Valor</th>
+                            <th >Promedio</th>
+                        </tr>
+                        <tr>
+                            <td>Corners</td>
+                            <td id="away_corners">16</td>
+                            <td id="away_corners_p">16</td>
+                        </tr>
+                        <tr>
+                            <td>Faltas</td>
+                            <td id="away_fouls">16</td>
+                            <td id="away_fouls_p">16</td>
+                        </tr>
+                        <tr>
+                            <td>Tarjetas amarrillas</td>
+                            <td id="away_ycard">16</td>
+                            <td id="away_ycard_p">16</td>
+                        </tr>
+                        <tr>
+                            <td>Tarjetas rojas</td>
+                            <td id="away_rcard">16</td>
+                            <td id="away_rcard_p">16</td>
+                        </tr>
+                        <tr>
+                            <td>Tiros</td>
+                            <td id="away_shoots">16</td>
+                            <td id="away_shoots_p">16</td>
+                        </tr>
+                        <tr>
+                            <td>Tiros a puerta</td>
+                            <td id="away_dshoots">16</td>
+                            <td id="away_dshoots_p">16</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

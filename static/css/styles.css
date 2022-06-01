@@ -1,0 +1,183 @@
+body{
+    background: linear-gradient(180deg, #227081 0%, #000000 100%) no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+footer{
+    height: 30vh;
+    background: #080E2C;
+}
+nav{
+    background: #44EABB;
+}
+.teams_selector{
+    height: 35vh;
+    width: 90vh;
+    background: linear-gradient(89.93deg, #44EABB 0.06%, #227081 99.94%);
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 100px auto 100px  auto;
+}
+.stadium{
+    padding: 0;
+    height: 50vh;
+    background: url("../img/resources/favpng_football-pitch-stadium-clip-art.png") no-repeat;
+    background-size: contain;
+    background-position: bottom;
+}
+.stadium img{
+    margin: auto;
+    width: 100vw;
+}
+.inputs{
+    margin: 20px auto;
+    width: 80%;
+    height: 100px;
+}
+.inputs label{
+    font-size: 20px;
+    color: white;
+
+}
+.inputs input {
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+}
+.inputs select {
+    text-align: center;
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+
+}
+.button_space a{
+    text-decoration: none;
+    padding: 0;
+    margin: auto;
+    width: auto;
+    height: 80px;
+    border: none;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.button_space a h3{
+    margin: auto 20px;
+    color: #1a1e21;
+}
+#retry .icon_button{
+    background: #04355A;
+}
+.inputs h1{
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+.icon_button{
+    width: 70px;
+    height: 80px;
+    border-radius: 20px;
+    background: #44EABB;
+    display: flex;
+}
+.team img{
+    margin: auto;
+    width: 200px;
+}
+.icon_button img{
+    width: 50px;
+    margin: auto;
+}
+.flex{
+    display: flex;
+}
+.title{
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-family: 'Faster One', cursive;
+}
+.padding_none{
+    padding: 0;
+}
+.navincon{
+    width: 50px;
+    margin: auto;
+}
+.margin_auto{
+    margin: auto;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.ocult{
+    display: none;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.img_team{
+    margin: auto;
+}
+.margin_separation{
+    margin: 30px auto;
+}
+.title_stats{
+    color: white;
+    text-align: center;
+}
+table{
+    width: 100%;
+}
+tr{
+    border-bottom: 2px solid;
+}
+
+th, td {
+    padding: 25px;
+}
+table .img_team{
+    width: 150px;
+}
+.title_table{
+    text-align: center;
+    font-size: 24px;
+}
+.no_border{
+    border: none;
+}
+.curve{
+    border-radius: 20px;
+    background: white;
+    margin: 10px;
+}
+.team_stats{
+    background: linear-gradient(102.67deg, rgba(68, 234, 187, 0.5) 2.05%, rgba(34, 129, 102, 0.5) 100%), url("../img/resources/texture.png");
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    color: white;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
